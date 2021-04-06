@@ -1,7 +1,7 @@
 class Review {
     constructor(reviewData ) {
         this.review = reviewData
-        Review.call.push(this)
+        Review.all.push(this)
     }
 
     render() {
