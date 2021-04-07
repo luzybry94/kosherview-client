@@ -23,8 +23,7 @@ class Review {
                 <p class="card-text">"${this.description}"</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    <button type="button" data-id="${this.id}" class="btn btn-sm btn-outline-secondary">Delete</button>
                   </div>
                   <small class="text-muted">Reviewed by ${this.author} - ${this.date}</small>
                 </div>
