@@ -49,30 +49,47 @@
       <section class="py-5 text-center container">
         <h1>Review a Restaurant</h1>
         <br>
-        <form class="col-md-6 offset-md-3">
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Example select</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+        <form class="col-md-6 offset-md-3" id="review-form">
+            <input type="text" class="form-control" name="author" placeholder="Reviewer">
+            <br>
+            <input type="text" class="form-control" name="restaurant" placeholder="Restaurant Name">
+            <br>
+            <input type="text" class="form-control" name="location" placeholder="Location">
+            <br>
+            <select class="form-control" name="category">
+              <option value="" selected disabled hidden>Select Category</option>
+              <option value="18">Meat</option>
+              <option value="19">Dairy</option>
+              <option value="20">Cafe</option>
+              <option value="21">Bar</option>
             </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
+            <br>
+            <input type="text" class="form-control" name="image" placeholder="Image">
+            <br>
+            <select class="form-control" name="rating">
+              <option value="" selected disabled hidden>Rating</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <br>
+            <textarea class="form-control" name="description" rows="3" placeholder="Tell us about your experience..."></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary mb-2">Submit Review</button>
         </form>
+        
       </section>
 
       <div class="album py-5 bg-light">
         <div class="container">
+          
 
           <div id="review-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             
