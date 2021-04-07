@@ -5,8 +5,15 @@ const reviewContainer = document.querySelector("#review-container")
 const reviewForm = document.querySelector("#review-form")
 
 
-reviewForm.addEventListener("submit", submitReview)
 
+reviewForm.addEventListener("submit", submitReview)
+reviewContainer.addEventListener("click", e => {
+    if (e.target.matches("button")) {
+        deleteReview(e.target.dataset.id)
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove()
+        // location.reload()
+    }
+})
 
 
 function getReviews() {
@@ -51,16 +58,11 @@ function submitReview(e) {
   
 }
 
-// fetch("http://localhost:3000/api/v1/reviews/1", {
-//   method: "PATCH",
-//   headers: {
-//     "Content-Type": "application/json"
-//   },
-//   body: JSON.stringify({ 
-//     author: "Alvin"
-//   })
-// })
-//   .then(r => r.json())
-//   .then(console.log)
+function deleteReview(id) {
+    fetch(`${BASE_URL}/reviews/${id}`, {
+        method: "DELETE"
+    })
+}
+
 
 getReviews()
