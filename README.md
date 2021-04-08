@@ -1,9 +1,9 @@
 # Kosherview 
 ## Instructions
 
-First, clone the [Kosherview API Repo](https://github.com/luzybry94/kosherview-backend).
+First, clone the [Kosherview Backend Repo](https://github.com/luzybry94/kosherview-backend).
 
-After opening and changing into the API directory, run the following commands:
+Be sure to `cd` into the backend directory and run the following commands:
 ```
 bundle install
 ```
