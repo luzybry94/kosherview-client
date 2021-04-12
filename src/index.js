@@ -16,6 +16,20 @@ reviewContainer.addEventListener("click", e => {
     }
 })
 
+function addCategories() {
+    const categoryDropdown = document.querySelector("#category-dropdown")
+    fetch(`${BASE_URL}/categories`)
+        .then(r => r.json())
+        .then(categoryData => {
+            categoryData.forEach(catObj => {
+                const option = `<option value="${catObj.id}">${catObj.name}</option>`
+                categoryDropdown.innerHTML += option
+
+            })
+        })
+
+}
+
 function filterCategory() {
     const categorySelection = parseInt(document.querySelector("#category-pick").value)
     const reviews = Review.all.filter((review) => {
@@ -79,5 +93,5 @@ function deleteReview(id) {
     })
 }
 
-
+addCategories()
 getReviews()
