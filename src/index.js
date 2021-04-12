@@ -3,9 +3,10 @@ const BASE_URL = "http://localhost:3000/api/v1"
 
 const reviewContainer = document.querySelector("#review-container")
 const reviewForm = document.querySelector("#review-form")
+const catFilter = document.querySelector("#cat-filter")
 
 
-
+catFilter.addEventListener("click", filterCategory)
 reviewForm.addEventListener("submit", submitReview)
 reviewContainer.addEventListener("click", e => {
     if (e.target.matches("button")) {
@@ -15,6 +16,19 @@ reviewContainer.addEventListener("click", e => {
     }
 })
 
+function filterCategory() {
+    const categorySelection = parseInt(document.querySelector("#category-pick").value)
+    const reviews = Review.all.filter((review) => {
+        return review.category.id === categorySelection
+
+        
+    })
+    reviewContainer.innerHTML = ''
+    reviews.forEach(review => {
+        
+        review.render()
+    })
+}
 
 function getReviews() {
   fetch(`${BASE_URL}/reviews`)
@@ -53,6 +67,7 @@ function submitReview(e) {
       .then(reviewObj => {
           const review = new Review(reviewObj)
           review.render()
+          reviewForm.reset()
       })
     
   
