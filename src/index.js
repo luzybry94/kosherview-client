@@ -3,10 +3,10 @@ const BASE_URL = "http://localhost:3000/api/v1"
 
 const reviewContainer = document.querySelector("#review-container")
 const reviewForm = document.querySelector("#review-form")
-const catFilter = document.querySelector("#cat-filter")
+const catFilter = document.querySelector("#category-pick")
 
 
-catFilter.addEventListener("click", filterCategory)
+catFilter.addEventListener("change", filterCategory)
 reviewForm.addEventListener("submit", submitReview)
 reviewContainer.addEventListener("click", e => {
     if (e.target.matches("button")) {
@@ -18,12 +18,14 @@ reviewContainer.addEventListener("click", e => {
 
 function addCategories() {
     const categoryDropdown = document.querySelector("#category-dropdown")
+    const categorySelection = document.querySelector("#category-pick")
     fetch(`${BASE_URL}/categories`)
         .then(r => r.json())
         .then(categoryData => {
             categoryData.forEach(catObj => {
                 const option = `<option value="${catObj.id}">${catObj.name}</option>`
                 categoryDropdown.innerHTML += option
+                categorySelection.innerHTML += option
 
             })
         })
@@ -31,9 +33,17 @@ function addCategories() {
 }
 
 function filterCategory() {
-    const categorySelection = parseInt(document.querySelector("#category-pick").value)
+    const categorySelection = document.querySelector("#category-pick").value
+    if (categorySelection === "all") {
+        reviewContainer.innerHTML = ''
+        Review.all.forEach(review => {
+        
+        review.render()
+      })
+    
+    } else {
     const reviews = Review.all.filter((review) => {
-        return review.category.id === categorySelection
+        return review.category.id === parseInt(categorySelection)
 
         
     })
@@ -42,6 +52,7 @@ function filterCategory() {
         
         review.render()
     })
+  }
 }
 
 function getReviews() {

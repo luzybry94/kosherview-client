@@ -84,18 +84,19 @@
 
       <div class="album py-5 bg-light">
         <div class="container">
-          <select id="category-pick">
-            <option value="" selected disabled hidden>Select Category</option>
-            <option value="18">Meat</option>
-            <option value="19">Dairy</option>
-            <option value="20">Cafe</option>
-            <option value="21">Bar</option>
-          </select>
-          <button type="submit" id="cat-filter">Submit</button>
+          Category:
+            <select id="category-pick" class="rounded">
+              <!-- <option value="" selected disabled hidden>Select Category</option> -->
+              <option value="all" selected>All</option>
+              
+            </select>
+            <!-- <button class="btn btn-sm btn-outline-primary" type="submit" id="cat-filter">Filter</button> -->
+          <br>
+          <br>
 
 
           <div id="review-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            
+  
           </div>
         </div>
       </div>
