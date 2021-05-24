@@ -16,7 +16,7 @@ class Review {
         const reviewCard = 
           `<div class="col">
             <div class="card shadow-sm">
-              <img src="${this.imageUrl} class="bd-placeholder-img card-img-top" width="100%" height="225" alt="restaurant-image">
+              <img src=${this.imageUrl} class="bd-placeholder-img card-img-top" width="100%" height="225" alt="restaurant-image">
               <div class="card-body">
                 <strong>${this.restaurant}</strong> (${this.category.name}) - <em>${this.location}</em>
                 <p>${this.rating}/10</p>
